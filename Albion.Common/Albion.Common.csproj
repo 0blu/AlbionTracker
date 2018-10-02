@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7AB12AD2-CAE2-483E-804E-374F010B3392}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Albion.Common</RootNamespace>
+    <AssemblyName>Albion.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums.cs" />
+    <Compile Include="GameData\AlbionTypedXmlData.cs" />
+    <Compile Include="GameData\AlbionXmlData.cs" />
+    <Compile Include="GameData\Characters\CharacterData.cs" />
+    <Compile Include="GameData\GameData.cs" />
+    <Compile Include="GameData\GameDataInfo.cs" />
+    <Compile Include="GameData\Mobs\MobData.cs" />
+    <Compile Include="GameData\Mobs\MobInfo.cs" />
+    <Compile Include="GameData\Spells\SpellData.cs" />
+    <Compile Include="GameData\Spells\SpellInfo.cs" />
+    <Compile Include="GameData\Tuning\ServerSettings.cs" />
+    <Compile Include="GameData\Tuning\TuningData.cs" />
+    <Compile Include="GameData\WorldInfo\ArcheTypeInfo.cs" />
+    <Compile Include="GameData\WorldInfo\ClusterTypeInfo.cs" />
+    <Compile Include="GameData\WorldInfo\WorldData.cs" />
+    <Compile Include="GameData\World\ClusterInfo.cs" />
+    <Compile Include="GameData\World\World.cs" />
+    <Compile Include="IO\Xml\GameDataDecryptor.cs" />
+    <Compile Include="Math\FixPoint.cs" />
+    <Compile Include="Network\EventDataContract.cs" />
+    <Compile Include="Network\Events\HealthUpdate.cs" />
+    <Compile Include="Network\Events\InCombatStateUpdate.cs" />
+    <Compile Include="Network\Events\Leave.cs" />
+    <Compile Include="Network\Events\NewCharacter.cs" />
+    <Compile Include="Network\Events\NewMob.cs" />
+    <Compile Include="Network\Events\PartySilverGained.cs" />
+    <Compile Include="Network\Events\TakeSilver.cs" />
+    <Compile Include="Network\Events\UpdateFame.cs" />
+    <Compile Include="Network\EventWithObjectId.cs" />
+    <Compile Include="Network\OperationDataContract.cs" />
+    <Compile Include="Network\Operations\Responses\ChangeClusterResponse.cs" />
+    <Compile Include="Network\Operations\Responses\JoinResponse.cs" />
+    <Compile Include="Photon\DataFieldAttribute.cs" />
+    <Compile Include="Photon\EventCodeAttribute.cs" />
+    <Compile Include="Photon\EventCodes.cs" />
+    <Compile Include="Photon\OperationCodeAttribute.cs" />
+    <Compile Include="Photon\OperationCodes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Time\GameTimeSpan.cs" />
+    <Compile Include="Time\GameTimeStamp.cs" />
+    <Compile Include="Xml\XmlUtils.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6AF32452-79E0-4F1F-9D25-D73141CC9FBF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlbionNetworkAnalyzer</RootNamespace>
+    <AssemblyName>AlbionNetworkAnalyzer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PcapDotNet.Base, Version=0.10.0.20588, Culture=neutral, PublicKeyToken=4b6f3e583145a652, processorArchitecture=MSIL">
+      <HintPath>..\packages\PcapDotNet.0.10.2\lib\net40\PcapDotNet.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="PcapDotNet.Core, Version=0.10.0.20632, Culture=neutral, PublicKeyToken=4b6f3e583145a652, processorArchitecture=x86">
+      <HintPath>..\packages\PcapDotNet.0.10.2\lib\net40\PcapDotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PcapDotNet.Core.Extensions, Version=0.10.0.20638, Culture=neutral, PublicKeyToken=4b6f3e583145a652, processorArchitecture=MSIL">
+      <HintPath>..\packages\PcapDotNet.0.10.2\lib\net40\PcapDotNet.Core.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="PcapDotNet.Packets, Version=0.10.0.20603, Culture=neutral, PublicKeyToken=4b6f3e583145a652, processorArchitecture=MSIL">
+      <HintPath>..\packages\PcapDotNet.0.10.2\lib\net40\PcapDotNet.Packets.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonPackageParser, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PhotonPackageParser.2.2.0\lib\net471\PhotonPackageParser.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlbionContractParser.cs" />
+    <Compile Include="ContractDeserialization\Deserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\FixPointArrayDeserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\FixPointDeserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\GameTimeSpanDeserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\GameTimeStampDeserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\GuidDeserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\System\Numbes\BooleanDeserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\System\Numbes\ByteDeserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\System\Numbes\DoubleDeserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\System\Numbes\Int16Deserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\System\Numbes\Int32Deserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\System\Numbes\Int64Deserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\System\Numbes\NumberArray.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\System\Numbes\SingleDeserializer.cs" />
+    <Compile Include="ContractDeserialization\CustomTypeBiserializers\System\SimpleCastDeserializer.cs" />
+    <Compile Include="ContractDeserialization\ICustomTypeDeserializer.cs" />
+    <Compile Include="ContractDeserialization\ICustomTypeDeserializerRegistry.cs" />
+    <Compile Include="ContractDeserialization\PhotonApplicationOptionAttribute.cs" />
+    <Compile Include="ContractDeserialization\SimpleCustomTypeDeserializerRegistry.cs" />
+    <Compile Include="IAlbionPackageHandler.cs" />
+    <Compile Include="NetworkAnalyzer.cs" />
+    <Compile Include="PacketDeviceSelector.cs" />
+    <Compile Include="PhotonParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Albion.Common\Albion.Common.csproj">
+      <Project>{7ab12ad2-cae2-483e-804e-374f010b3392}</Project>
+      <Name>Albion.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
