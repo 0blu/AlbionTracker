@@ -18,7 +18,7 @@ namespace AlbionTracker.WebSocket
         {
             Send(JsonConvert.SerializeObject(new WsChangeCluster
             {
-                clusterName = _stateHandler?.CurrentCluster.DisplayName,
+                clusterName = _stateHandler.CurrentCluster?.DisplayName,
             }));
 
             foreach (var gameEntity in _stateHandler.EntityManager.GetEntities())
