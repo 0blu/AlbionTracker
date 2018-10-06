@@ -6,6 +6,9 @@ import {PlayerNameAnonymizer} from './libs/PlayerNameAnonymizer';
 import {Entity} from '@/models/Entity';
 import {GameObjectType} from '@/models/TypeAlias';
 
+const SuiVue = require('semantic-ui-vue').default;
+import 'semantic-ui-css/semantic.min.css';
+
 Vue.config.productionTip = false;
 
 Vue.filter('getEntityName', function getEntityName(entity: Entity) {
@@ -17,6 +20,8 @@ Vue.filter('getEntityName', function getEntityName(entity: Entity) {
     }
     return entity.name;
 });
+
+Vue.use(SuiVue);
 
 new Vue({
     store,
