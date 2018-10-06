@@ -3,6 +3,7 @@ using System.Net;
 using Albion.Common;
 using Albion.Common.GameData;
 using Albion.Common.GameData.World;
+using Albion.Common.Math;
 using Albion.Common.Time;
 using AlbionTracker.Albion;
 using AlbionTracker.WebSocket.Models;
@@ -38,6 +39,7 @@ namespace AlbionTracker.WebSocket
         {
             _stateHandler.OnChangeCluster += SendChangeCluster;
             _stateHandler.OnChangeCombatMode += SendCombatMode;
+            _stateHandler.FarmManager.OnGainedSilver += SendGainedSilver;
             _stateHandler.EntityManager.OnAddEntitiy += SendNewEntity;
             _stateHandler.EntityManager.OnHealthUpdate += SendHealthUpdate;
         }
@@ -46,6 +48,7 @@ namespace AlbionTracker.WebSocket
         {
             _stateHandler.EntityManager.OnHealthUpdate -= SendHealthUpdate;
             _stateHandler.EntityManager.OnAddEntitiy -= SendNewEntity;
+            _stateHandler.FarmManager.OnGainedSilver -= SendGainedSilver;
             _stateHandler.OnChangeCombatMode -= SendCombatMode;
             _stateHandler.OnChangeCluster -= SendChangeCluster;
         }
@@ -54,6 +57,15 @@ namespace AlbionTracker.WebSocket
         {
             UnregisterEvents();
             _wss?.Stop();
+        }
+
+        private void SendGainedSilver(long objectId, FixPoint amount)
+        {
+            Broadcast(new WsSilverGained
+            {
+                objectId = objectId,
+                amount = amount.FloatValue,
+            });
         }
 
         public void SendHealthUpdate(long objectId, GameTimeStamp timeStamp, float healthChange, float newHealthValue, EffectType effectType, EffectOrigin effectOrigin, long causerId, int causingSpellType)

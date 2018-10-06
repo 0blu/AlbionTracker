@@ -7,6 +7,7 @@ namespace AlbionTracker.Albion
     internal class StateHandler
     {
         public readonly EntityManager EntityManager = new EntityManager();
+        public readonly FarmManager FarmManager = new FarmManager();
 
         public ClusterInfo CurrentCluster
         {

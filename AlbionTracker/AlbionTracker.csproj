@@ -52,6 +52,7 @@
     <Compile Include="AlbionPathFinder.cs" />
     <Compile Include="AlbionTracker.cs" />
     <Compile Include="Albion\AlbionPackageHandler.cs" />
+    <Compile Include="Albion\FarmManager.cs" />
     <Compile Include="Albion\GameObject.cs" />
     <Compile Include="Albion\StateHandler.cs" />
     <Compile Include="Program.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="WebSocket\Models\WsChangeCluster.cs" />
     <Compile Include="WebSocket\Models\WsCombatEvent.cs" />
     <Compile Include="WebSocket\Models\WsInCombatStateUpdate.cs" />
+    <Compile Include="WebSocket\Models\WsSilverGained.cs" />
     <Compile Include="WebSocket\SocketServer.cs" />
     <Compile Include="WebSocket\WsMessage.cs" />
     <Compile Include="WebSocket\Models\WsNewEntity.cs" />

@@ -69,14 +69,17 @@ namespace AlbionTracker.Albion
 
         public void OnUpdateFame(UpdateFame package)
         {
+            //_stateHandler.FarmManager.GainedFame(package.ObjectId, package.Total);
         }
 
         public void OnPartySilverGained(PartySilverGained package)
         {
+            _stateHandler.FarmManager.GainedSilver(package.TargetEntityId, package.SilverNet);
         }
 
         public void OnTakeSilver(TakeSilver package)
         {
+            _stateHandler.FarmManager.GainedSilver(package.ObjectId, package.YieldPreTax);
         }
     }
 }

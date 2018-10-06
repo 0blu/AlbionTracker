@@ -5,6 +5,7 @@
         NewEntity,
         CombatEvent,
         InCombatStateUpdate,
-        ChangeCluster
+        ChangeCluster,
+        SilverGained,
     }
 }
