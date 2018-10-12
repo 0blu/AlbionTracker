@@ -321,6 +321,8 @@
         OutpostClaimed,
         OverChargeEnd,
         OverChargeStatus,
-        OutpostReward
+        OutpostReward,
+        NewUnlockedPersonalSeasonRewards,
+        PersonalSeasonPointsGained
     }
 }

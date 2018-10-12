@@ -145,6 +145,7 @@
         GetGvgSeasonRankings,
         GetGvgSeasonRank,
         GetGvgSeasonHistoryRankings,
+        GetGvgSeasonGuildMemberHistory,
         KickFromGvGMatch,
         GetChestLogs,
         GetAccessRightLogs,
@@ -319,6 +320,9 @@
         ChangeFlaggingPrepare,
         OverCharge,
         OverChargeEnd,
-        RequestTrusted
+        RequestTrusted,
+        GetPersonalSeasonTrackerData,
+        UseConsumableFromInventory,
+        ClaimPersonalSeasonReward,
     }
 }
